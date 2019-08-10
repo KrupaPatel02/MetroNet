@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Team Introduction</title>
+    <link rel="stylesheet" href="style.css">
+    <script lang="javascript" type="text/javascript">
+    function validateForm() {
+      var name = document.getElementById("name").value;
+      var funfact = document.getElementById("fun_fact").value;
+      if(name == ""){
+        alert("Please enter your name.");
+        name.focus();
+        return false;
+      }
+      console.log(name);
+      if(funfact == ""){
+        alert("Please enter one of your fun fact.");
+        funfact.focus();
+        return false;
+      }
+      console.log(funfact);
+    }
+
+    var modal = document.querySelector(".modal");
+    var trigger = document.querySelector(".trigger");
+    var closeButton = document.querySelector(".close-button");
+
+    function toggleModal() {
+        modal.classList.toggle("show-modal");
+    }
+
+    function windowOnClick(event) {
+        if (event.target === modal) {
+            toggleModal();
+        }
+    }
+    </script>
+  </head>
+  <body>
+    <h1 style="text-align: center"> Introduction Form </h1>
+    <form name="introForm" class="" action="" onsubmit="validateForm()" method="post">
+        <div>
+          <label for="name">Name:</label>
+          <input type="text" name="name" id="name" placeholder="" /><br>
+        </div>
+        <div>
+          <label for="fun_fact">Fun Fact</label>
+          <input type="text" name="fun_fact" id="fun_fact" value="" placeholder="" /><br>
+        </div>
+        <div class="button">
+          <button class="trigger" type="submit" name="button" id="introBtn">Introduce You!!</button>
+        </div>
+    </form>
+
+    <div class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h1></h1>
+        </div>
+    </div>
+  </body>
+</html>
